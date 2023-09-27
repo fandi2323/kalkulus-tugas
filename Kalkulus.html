@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Fandi Mustaqim Kalkulator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+    <SCript src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.js"></SCript>
+</head>
+<body>
+    <h3>Fandi Mustaqim</h3>
+    <p>masukan fungsi f(x)</p>
+    <input type="text" id="inputFunction" placeholder="Contoh : 6x^2 + 4 - x">
+    <button onclick="hitungTurunan()">hitung turunan</button>
+    <label>turunan:</label><p id="result"></p>
+</body>
+<script>
+
+    let expr;
+
+    function hitungTurunan() {
+        const inputFunction = document.getElementById("inputFunction").value;
+        try{
+            expr = math.parse(inputFunction);
+            const derivative = math.derivative(expr, 'x').toString();
+            document.getElementById("result").textContent = derivative;
+        } catch (error){
+            alert("error:masukkan fungsi yang valid")
+        }
+    }
+</script>
+</html>
